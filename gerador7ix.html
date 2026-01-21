@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>new 7xis Premium</title>
+<style>
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff;}
+header{background:linear-gradient(90deg,#8b0000,#000);padding:15px;text-align:center;font-size:26px;font-weight:bold;text-shadow:0 0 10px red;}
+nav{display:flex;background:#111;overflow-x:auto;}
+nav button{background:none;border:none;color:#fff;padding:14px;cursor:pointer;transition:0.3s;}
+nav button:hover{background:#8b0000;color:#ff4444;font-weight:bold;}
+section{display:none;padding:20px;}
+section.active{display:block;}
+.card{background:#151515;border:1px solid #8b0000;border-radius:8px;padding:15px;margin-bottom:15px;box-shadow:0 0 10px #ff0000;}
+input,select,button{width:100%;margin-top:8px;padding:8px;background:#000;border:1px solid #8b0000;color:#fff;border-radius:5px;}
+button{cursor:pointer;transition:0.3s;}
+button:hover{background:#8b0000;color:#fff;}
+.result{margin-top:10px;color:#00ff99;white-space:pre-line;font-family:monospace;}
+.lock{color:#ff4444;font-weight:bold;}
+table{width:100%;border-collapse:collapse;margin-top:15px;}
+th,td{border:1px solid #8b0000;padding:8px;text-align:center;}
+th{background:#8b0000;color:#fff;}
+tr:hover{background:#330000;}
+</style>
+</head>
+<body>
+
+<header>new 7xis Premium</header>
+
+<nav>
+<button onclick="tab('famosos')">🎯 Famosos</button>
+<button onclick="tab('armas')">🔫 Armas</button>
+<button onclick="tab('celular')">🎲 Celular</button>
+<button onclick="tab('estilo')">🎮 Estilo</button>
+<button onclick="tab('dpi')">🥷 DPI</button>
+<button onclick="tab('metodos')">📁 Métodos</button>
+</nav>
+
+<!-- FAMOSOS -->
+<section id="famosos" class="active">
+<div class="card">
+<h3>🎯 Sensibilidade de Famosos</h3>
+<select id="famoso">
+<option value="">Escolha um famoso</option>
+<option value="black444">black444</option>
+<option value="white">white</option>
+<option value="fantasma">fantasma</option>
+<option value="suesa">suesa</option>
+<option value="deusa">deusa</option>
+<option value="dark">dark</option>
+<option value="drey">drey</option>
+<option value="yellow">YELLOW</option>
+<option value="apelapato">apela & pato</option>
+<option value="two9">two9</option>
+<option value="igorx">igor x</option>
+<option value="soneca">soneca</option>
+<option value="manomax">mano max</option>
+<option value="advogado">advogado</option>
+</select>
+
+<select id="pesoF">
+<option value="">Tipo</option>
+<option value="leve">Leve</option>
+<option value="eq">Equilibrada</option>
+<option value="pesada">Pesada</option>
+</select>
+
+<button onclick="gerarFamoso()">Gerar</button>
+<div id="resF" class="result"></div>
+</div>
+</section>
+
+<!-- ARMAS -->
+<section id="armas">
+<div class="card">
+<h3>🔫 Sensibilidade por Arma</h3>
+<select id="arma">
+<option value="">Escolha a arma</option>
+<option>Carabina</option>
+<option>Desert Eagle</option>
+<option>M1014</option>
+<option>UMP</option>
+<option>AC80</option>
+<option>M500</option>
+</select>
+<button onclick="gerarArma()">Gerar</button>
+<div id="resArma" class="result"></div>
+</div>
+</section>
+
+<!-- CELULAR -->
+<section id="celular">
+<div class="card">
+<h3>🎲 Sensibilidade por Celular</h3>
+<input id="marca" placeholder="Marca">
+<input id="modelo" placeholder="Modelo">
+<select id="potencia">
+<option value="">Potência</option>
+<option>Fraco</option>
+<option>Equilibrado</option>
+<option>Forte</option>
+</select>
+<select id="pesoC">
+<option value="">Tipo</option>
+<option>Leve</option>
+<option>Equilibrada</option>
+<option>Pesada</option>
+</select>
+<button onclick="gerarCelular()">Gerar</button>
+<div id="resC" class="result"></div>
+</div>
+</section>
+
+<!-- ESTILO -->
+<section id="estilo">
+<div class="card">
+<h3>🎮 Estilo de Jogo</h3>
+<select id="estiloJ">
+<option value="">Escolha</option>
+<option>Freestyle</option>
+<option>Instaplayer</option>
+<option>Pulanteplayer</option>
+<option>Insanedrive</option>
+</select>
+<button onclick="gerarEstilo()">Gerar</button>
+<div id="resE" class="result"></div>
+</div>
+</section>
+
+<!-- DPI -->
+<section id="dpi">
+<div class="card">
+<h3>🥷 DPI</h3>
+<select id="tipoDpi">
+<option value="">Tipo</option>
+<option value="eq">Equilibrada</option>
+<option value="leve">Leve</option>
+<option value="pesada">Pesada</option>
+</select>
+<button onclick="gerarDPI()">Gerar</button>
+<div id="resD" class="result"></div>
+</div>
+</section>
+
+<!-- MÉTODOS -->
+<section id="metodos">
+<div class="card">
+<h3>📁 Métodos (Dono)</h3>
+<input type="password" id="senhaMetodo" placeholder="Senha do dono">
+<button onclick="liberarMetodo()">Entrar</button>
+<div id="painelMetodo" style="display:none">
+<label>Macetinho 2x</label><input placeholder="Link do método">
+<label>Macetinho 4x</label><input placeholder="Link do método">
+<label>Método Full Vermelho</label><input placeholder="Link do método">
+<label>Como descobrir seu botão de atirar</label><input placeholder="Link do método">
+</div>
+<div id="msgMetodo" class="lock"></div>
+</div>
+</section>
+
+<script>
+// Função abas
+function tab(id){
+ document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+}
+
+// Sensi completa
+function sensi(base){
+ return `Geral: ${base}
+Ponto Vermelho: ${base+5}
+Mira 2x: ${base+2}
+Mira 4x: ${base-3}
+AWM: ${base-5}
+Olhadinha: ${base-2}`;
+}
+
+// Famosos base
+const baseF={
+ black444:140, white:145, fantasma:150, suesa:135,
+ deusa:148, dark:138, drey:146, yellow:150,
+ apelapato:155, two9:143, igorx:147,
+ soneca:152, manomax:144, advogado:136
+};
+
+// Gerar famoso
+function gerarFamoso(){
+ let f=document.getElementById("famoso").value;
+ let p=document.getElementById("pesoF").value;
+ if(!f||!p){resF.innerHTML="❌ Escolha famoso e tipo";return;}
+ let base=baseF[f];
+ if(p=="leve")base-=5;
+ if(p=="pesada")base+=5;
+ resF.innerHTML=sensi(base);
+}
+
+// Gerar arma
+function gerarArma(){
+ let a=document.getElementById("arma").value;
+ if(!a){resArma.innerHTML="❌ Escolha a arma";return;}
+ let base={Carabina:145,"Desert Eagle":160,M1014:170,UMP:150,AC80:155,M500:165}[a];
+ resArma.innerHTML=sensi(base);
+}
+
+// Gerar celular
+function gerarCelular(){
+ let marca=document.getElementById("marca").value;
+ let modelo=document.getElementById("modelo").value;
+ let pot=document.getElementById("potencia").value;
+ let p=document.getElementById("pesoC").value;
+ if(!marca||!modelo||!pot||!p){resC.innerHTML="❌ Preencha tudo";return;}
+ let base=pot=="Forte"?150:pot=="Equilibrado"?140:130;
+ if(p=="Leve")base+=5;
+ if(p=="Pesada")base-=5;
+ resC.innerHTML=sensi(base);
+}
+
+// Estilo
+function gerarEstilo(){
+ let e=document.getElementById("estiloJ").value;
+ if(!e){resE.innerHTML="❌ Escolha estilo";return;}
+ let base={Freestyle:150,Instaplayer:145,Pulanteplayer:155,Insanedrive:160}[e];
+ resE.innerHTML=sensi(base);
+}
+
+// DPI
+function gerarDPI(){
+ let t=document.getElementById("tipoDpi").value;
+ if(!t){resD.innerHTML="❌ Escolha tipo";return;}
+ if(t=="eq")resD.innerHTML="DPI: "+(500+Math.floor(Math.random()*190));
+ if(t=="leve")resD.innerHTML="DPI: "+(690+Math.floor(Math.random()*900));
+ if(t=="pesada")resD.innerHTML="DPI: "+(300+Math.floor(Math.random()*200));
+}
+
+// Métodos
+function liberarMetodo(){
+ let s=document.getElementById("senhaMetodo").value;
+ if(s==="soneca"){painelMetodo.style.display="block";msgMetodo.innerHTML="✅ Painel liberado";}
+ else{msgMetodo.innerHTML="❌ Acesso negado";}
+}
+</script>
+
+</body>
+</html>
